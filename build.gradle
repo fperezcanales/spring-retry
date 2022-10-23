@@ -17,6 +17,18 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'org.springframework.batch:spring-batch-test'
+	
+	// Spring Retry
+	implementation group: 'org.springframework.retry', name: 'spring-retry'//, version: '1.3.4'
+
+	// Spring Context
+	// implementation group: 'org.springframework', name: 'spring-context', version: '4.3.26.RELEASE'
+	implementation group: 'org.springframework', name: 'spring-context'//, version: '4.3.26.RELEASE'
+
+	// Aspect jrt
+	implementation group: 'org.springframework', name: 'spring-aop'
+	implementation group: 'org.springframework', name: 'spring-aspects'
+
 }
 
 tasks.named('test') {
