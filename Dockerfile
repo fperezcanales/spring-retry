@@ -2,16 +2,12 @@ ARG gradleVersion=7.2.0-jdk17-alpine
 
 ## Stage 1 gradle build
 FROM gradle:${gradleVersion} AS build
-# COPY --chown=gradle:gradle . /home/gradle/src
 
 WORKDIR /app
 COPY . .
 RUN gradle build
 
-RUN ls -la
-
 FROM openjdk:17.0.1-jdk-slim
-
 COPY --from=build /app /app
 WORKDIR /app
 
@@ -22,9 +18,7 @@ RUN groupadd -r -g 10001 appGrp \
     && useradd -r -u 10000 -s /sbin/nologin -d /opt/app/ -G appGrp app
 
 USER 10000
-RUN ls -la /app/build/libs/
 
-COPY --from=build /app/build/libs/my-spring-retry-0.0.1-SNAPSHOT.jar /opt/app/app.jar
+COPY --from=build /app/build/libs/my-spring-retry-0.0.1-SNAPSHOT.jar /app/app.jar
 
-#  "-XX:+UnlockExperimentalVMOptions", "-XX:+UseCGroupMemoryLimitForHeap", "-Djava.security.egd=file:/dev/./urandom",
 ENTRYPOINT ["java","-jar","/app/app.jar"]
