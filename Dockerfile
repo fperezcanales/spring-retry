@@ -12,6 +12,9 @@ RUN ls -la
 
 FROM openjdk:17.0.1-jdk-slim
 
+COPY --from=build /app /app
+WORKDIR /app
+
 EXPOSE 8080
 
 # Non Root User Configuration
