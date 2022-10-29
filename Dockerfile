@@ -24,7 +24,7 @@ RUN groupadd -r -g 10001 appGrp \
 USER 10000
 RUN ls -la /app/build/libs/
 
-COPY --from=build /app/build/libs/spring-retry-1.0.jar /opt/app/app.jar
+COPY --from=build /app/build/libs/my-spring-retry-0.0.1-SNAPSHOT.jar /opt/app/app.jar
 
 #  "-XX:+UnlockExperimentalVMOptions", "-XX:+UseCGroupMemoryLimitForHeap", "-Djava.security.egd=file:/dev/./urandom",
 ENTRYPOINT ["java","-jar","/app/app.jar"]
