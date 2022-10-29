@@ -1,0 +1,7 @@
+version: '3.7'
+services:
+  circlecitutorial:
+    build: .
+    container_name: circle-ci-tutorial
+    ports:
+    - '8080:8080'
