@@ -1,3 +1,10 @@
+# Personal project to practice:
+
+* SpringBoot with Spring Retry module
+* Spring AOP concepts
+* Integration source and deploy with CI/CD with CircleCI
+* Deploy into Heroku
+
 # Guide to Spring Retry 
 Last modified: September 9, 2022 by baeldung (https://www.baeldung.com/author/baeldung) 
 Spring Retry (https://www.baeldung.com/tag/spring-retry)
